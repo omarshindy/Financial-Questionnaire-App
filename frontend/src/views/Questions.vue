@@ -10,29 +10,24 @@
         >
           <div class="p-3">
             <h1>Section 1</h1>
+
             <form>
-            <div class="work-experiences">
-              <div class="form-row" v-for="(experience, index) in workExperiences" :key="index">
-                <div class="form-group col-md-6">
+              <div class="form-row" v-for="(question, index) in questions" :key="index">
+                <div class="form-group col-md-12">
                   <label>Company</label>
-                  <input v-model="experience.company" :name="`workExperiences[${index}][company]`" type="text" class="form-control" placeholder="Company">
-                </div>
-                <div class="form-group col-md-6">
-                  <label>Title</label>
-                  <input v-model="experience.title" :name="`workExperiences[${index}][title]`" type="text" class="form-control" placeholder="Title">
+                  <input v-model="question.question" :name="`questions[${index}][question]`" type="text" class="form-control" placeholder="Company">
                 </div>
               </div>
+
+              <div class="form-group">
+                <button @click="addExperience" type="button" class="btn btn-secondary">Add Question</button>
               </div>
+            
+              <hr>
 
-            <div class="form-group">
-              <button @click="addExperience" type="button" class="btn btn-secondary">Add experience</button>
-            </div>
-      
-            <hr>
-
-            <div class="form-group">
-              <button @click="submit" type="button" class="btn btn-primary">Submit</button>
-            </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
 
             </form>
 
@@ -61,29 +56,19 @@
 /* eslint-disable */
 export default {
   name: 'Questions',
-  data() {
-    return {
-      isDisabled: true,
-      workExperiences: [
-        {
-          company: "Foxconn",
-          title: "Engineer"
-        },
-        {
-          company: "Cherri Tech",
-          title: "Software Engineer"
-        }
-      ],
-    };
-  },
+  data: () => ({
+    questions: [
+
+    ],
+    isDisabled: true
+  }),
   methods: {
       showAlert: (message) => {
         alert(message);
       }, 
-      addExperience: () => {
-        this.workExperiences.push({
-          company: '',
-          title: ''
+      addExperience () {
+        this.questions.push({
+          question: '',
         })
       },
     }

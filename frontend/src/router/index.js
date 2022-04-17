@@ -7,7 +7,6 @@ import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Registration from '../views/Registration.vue';
 import Questions from '../views/Questions.vue';
-import Zobry from '../views/Zobry.vue';
 import AuthenticatedPing from '../views/AuthenticatedPing.vue';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../services/api/auth';
 
@@ -25,7 +24,7 @@ const routes = [
   {
     path: '/questions',
     name: 'Question',
-    component: Zobry
+    component: Questions
   },
   {
     path: '/register',
